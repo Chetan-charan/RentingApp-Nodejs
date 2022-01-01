@@ -136,7 +136,7 @@ app.post('/payment/verification', async (req,res) => {
 
         if(paymentdoc.status == 'captured'){
             client.db("b28wd").collection("orders").insertOne(data);
-            res.send({ message : 'Payment was successfull!!', order_Id: razorpay_order_id });
+            res.send({ message : 'Payment was successful'});
         }
         else{
             res.send({message: 'Payment unsuccessfull...'});
