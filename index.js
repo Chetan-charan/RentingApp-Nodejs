@@ -39,6 +39,14 @@ app.get('/furniture',async (req,res) => {
     
 })
 
+app.get('/furniture/:page',async (req,res) => {
+
+   const { page } = req.params;
+   const furniture = await client.db("b28wd").collection("furniture").find().skip(page*2).limit(2).toArray();
+   res.send(furniture);
+       
+   })
+
 app.post('/furniture', async (req,res) =>{
 
     const data = req.body;
@@ -53,6 +61,14 @@ app.get('/appliances',async (req,res) => {
     res.send(appliances);
    
 });
+
+app.get('/appliances/:page',async (req,res) => {
+
+    const { page } = req.params;
+    const appliances = await client.db("b28wd").collection("appliances").find().skip(page*2).limit(2).toArray();
+    res.send(appliances);
+        
+    })
 
 app.post('/appliances', async (req,res) =>{
 
@@ -69,6 +85,14 @@ app.get('/funzone',async (req,res) => {
    
 });
 
+app.get('/funzone/:page',async (req,res) => {
+
+    const { page } = req.params;
+    const funzone = await client.db("b28wd").collection("funzone").find().skip(page*2).limit(2).toArray();
+    res.send(funzone);
+        
+    })
+
 app.post('/funzone', async (req,res) =>{
 
     const data = req.body;
@@ -83,6 +107,14 @@ app.get('/laptops',async (req,res) => {
     res.send(laptops);
    
 });
+
+app.get('/laptops/:page',async (req,res) => {
+
+    const { page } = req.params;
+    const laptops = await client.db("b28wd").collection("laptops").find().skip(page*2).limit(2).toArray();
+    res.send(laptops);
+        
+    })
 
 app.post('/laptops', async (req,res) =>{
 
